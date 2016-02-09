@@ -18,6 +18,7 @@
 							<?php echo "<img src=".get_post_meta(get_the_ID(), "sp_icon", true).">" ?>
 						</div><div class="software-description">
 							<p ><?php echo get_post_meta(get_the_ID(), "sp_description", true)?></p>
+							<a class="software-readmore" href="<?php the_permalink() ?>" title="<?php the_permalink() ?>"><button class="software-readmore" >Read more</button></a>
 						</div><div class='software-info'>
 							<div class='item'>
 								<p class='label'>Version</p>
@@ -27,29 +28,28 @@
 								<p class='label'>Licence</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_license", true)?></p>
 							</div>
-							<div class='divider'>
+							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Author</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_author", true)?></p>
 							</div>
-							<div class='divider'>
+							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Platform</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_platform", true)?></p>
 							</div>
-							<div class='divider'>
+							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Language</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_language", true)?></p>
 							</div>
-							<div class='divider'>
+							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Downloads</p>
 								<p class='value'><?php echo do_shortcode('[download_data id="'.get_post_meta(get_the_ID(), "sp_download", true).'" data="download_count"]')?></p>
 							</div>
-							<div class='divider'>
+							<div class='divider'></div>
 						</div>
-						<a class="software-readmore" href="<?php the_permalink() ?>" title="<?php the_permalink() ?>"><button class="software-readmore" >Read more</button></a>
 					</div><!-- .software-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->
 
@@ -71,10 +71,8 @@
 				}
 
 				article.sp_software_page{
-					margin-top: 1.5em;
-					margin-bottom: 1.5em;
-					border: 3px solid #65717F;
-					/*background-color:#CAE1FF;*/
+					margin-top: 3em;
+					margin-bottom: 3em;
 					border-radius: 4px;
 					margin-left: -6px;
 					margin-right: -6px;
@@ -83,7 +81,6 @@
 				div.software-title{
 					width: 100%;
 					text-align: center;
-					background-color: #65717F;
 				}
 
 				div.software-title > h3{
@@ -95,7 +92,6 @@
 					width: 20%;
 					display: inline-block;
 					margin: 0;
-					border-right : 3px solid #3F5B7F;
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
@@ -105,6 +101,8 @@
 					margin-left: auto;
 					margin-right: auto;
 					display: block;
+					width: 80%;
+					height: 80%;
 				}
 
 
@@ -117,7 +115,6 @@
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
-					background-color: #65717F;
 					font-size: 12pt;
 				}
 
@@ -138,20 +135,18 @@
 				}
 
 				a.software-readmore{
-					position: absolute;
-					bottom: 0.5em;
-					right: 32%;
+
 				}
 
 				button.software-readmore{
-					height: 45px;
-					background-color: #222326;
-					color: white;
-					padding: 0.5em;
-					vertical-align: middle;
-					line-height: 100%;
+					background-color: #000000;
+					background-color: rgba(0,0,0,0);
+					color: black;
+					border: 2px solid;
+					border-color: black;
+					border-radius: 5px;
+					padding: .5em 1em;
 					appearance: none;
-					margin: 0;
 				}
 
 				p.label{

@@ -1,5 +1,5 @@
 
-<?php get_header(); ?>
+<?php get_header();?>
 
 		<div id="primary" class="content-area">
 			<div id="content" class="site-content" role="main">
@@ -28,27 +28,22 @@
 								<p class='label'>Licence</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_license", true)?></p>
 							</div>
-							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Author</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_author", true)?></p>
 							</div>
-							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Platform</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_platform", true)?></p>
 							</div>
-							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Language</p>
 								<p class='value'><?php echo get_post_meta(get_the_ID(), "sp_language", true)?></p>
 							</div>
-							<div class='divider'></div>
 							<div class='item'>
 								<p class='label'>Downloads</p>
 								<p class='value'><?php echo do_shortcode('[download_data id="'.get_post_meta(get_the_ID(), "sp_download", true).'" data="download_count"]')?></p>
 							</div>
-							<div class='divider'></div>
 						</div>
 					</div><!-- .software-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->
@@ -89,9 +84,8 @@
 				}
 
 				div.software-featured-image{
-					width: 20%;
-					display: inline-block;
-					margin: 0;
+					max-width: 250px;
+					margin: 0 auto 0 auto;
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
@@ -107,8 +101,6 @@
 
 
 				div.software-info{
-					width: 20%;
-					display: inline-block;
 					margin: 0;
 					vertical-align: top;
 					border-left: 1px solid grey;
@@ -116,13 +108,13 @@
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
 					font-size: 12pt;
+					text-align: center;
 				}
 
 
 
 				div.software-description{
 					position: relative;
-					width: 60%;
 					height: 100%;
 					display: inline-block;
 					margin: 0;
@@ -132,10 +124,7 @@
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
-				}
-
-				a.software-readmore{
-
+					text-align: justify;
 				}
 
 				button.software-readmore{
@@ -147,17 +136,117 @@
 					border-radius: 5px;
 					padding: .5em 1em;
 					appearance: none;
+
+				}
+
+				a.software-readmore{
+					display: block;
+					text-align: center;
 				}
 
 				p.label{
-					display: inline-block;
+					display: inline;
 					padding-left: 5px;
 					width: 30%;
 				}
 
 				p.value{
-					display: inline-block;
+					display: inline;
 					padding-left: 5px;
+
+				}
+
+				p.value:after{
+					content: " | "
+				}
+
+				.item{
+					display: inline;
+				}
+
+
+				@media screen and (min-width: 1280px){
+					div.software-featured-image{
+						width: 20%;
+						display: inline-block;
+						margin: 0;
+						-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+						-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+						box-sizing: border-box;         /* Opera/IE 8+ */
+					}
+
+					div.software-featured-image>img{
+						margin-left: auto;
+						margin-right: auto;
+						display: block;
+						width: 80%;
+						height: 80%;
+					}
+
+
+					div.software-info{
+						width: 20%;
+						display: inline-block;
+						margin: 0;
+						vertical-align: top;
+						border-left: 1px solid grey;
+						-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+						-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+						box-sizing: border-box;         /* Opera/IE 8+ */
+						font-size: 12pt;
+						text-align: left;
+					}
+
+
+
+					div.software-description{
+						position: relative;
+						width: 60%;
+						height: 100%;
+						display: inline-block;
+						margin: 0;
+						vertical-align: top;
+						padding: 0.5em;
+						font-size: 14pt;
+						-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+						-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+						box-sizing: border-box;         /* Opera/IE 8+ */
+					}
+
+					a.software-readmore{
+
+					}
+
+					button.software-readmore{
+						background-color: #000000;
+						background-color: rgba(0,0,0,0);
+						color: black;
+						border: 2px solid;
+						border-color: black;
+						border-radius: 5px;
+						padding: .5em 1em;
+						appearance: none;
+					}
+
+					p.label{
+						display: inline-block;
+						padding-left: 5px;
+						width: 30%;
+					}
+
+					p.value{
+						display: inline-block;
+						padding-left: 5px;
+
+					}
+
+					p.value:after{
+						content: ""
+					}
+
+					.item{
+						display: block;
+					}
 
 				}
 

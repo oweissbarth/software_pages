@@ -5,6 +5,8 @@ defined( 'ABSPATH' ) or die('No script kiddies please!');
 
 add_action('init', 'sp_create_post_types');
 function sp_create_post_types(){
+	global $sp_settings;
+
 	register_post_type('sp_software_page',
 						array(
 							'labels' => array(
@@ -21,6 +23,9 @@ function sp_create_post_types(){
 							),
 						'public' => true,
 						'has_archive' => false,
+						'rewrite' => array(
+							'slug' => $sp_settings["page_slug"]
+						)
 						)
 					);
 }
@@ -40,10 +45,10 @@ function sp_add_custom_metabox(){
 function sp_show_custom_metabox(){
 	global $sp_settings;
 	global $post;
-	
+
 	wp_nonce_field( basename( __FILE__ ), 'sp_software_pages_meta_nonce' );
 
-	?>		
+	?>
 			<table>
 				<tr>
 					<td><label>Author</label></td>
@@ -72,7 +77,7 @@ function sp_show_custom_metabox(){
 						<option value="<?php echo $result->id ?>" <?php if($result->id == $active_dl){echo"selected";}?>><?php echo $result->post_name ?></option>
 						<?php endforeach;?>
 					</select></td>
-					<?php else:?> 
+					<?php else:?>
 					<td><input name="sp_download" type="file"/></td>
 					<?php endif;?>
 				</tr>
@@ -141,13 +146,13 @@ function sp_save_meta_data($post_id){
   		error_log("nonce checking failed");
     	return $post_id;
   	}
-		
+
 
 
 	$meta_field_names = array("sp_author", "sp_license", "sp_catchphrase", "sp_version", "sp_platform", "sp_language", "sp_download", "sp_icon", "sp_description");
 
 	foreach($meta_field_names as $field){
-			
+
 
 		$new_value = ( isset( $_POST[$field] ) ? esc_attr( $_POST[$field] ) : '' );
 		$old_value = get_post_meta($post_id, $field, true);
@@ -183,6 +188,16 @@ function sp_page_template( $page_template ){
 	global $sp_settings;
     if ( is_page( $sp_settings["page_slug"] ) ) {
         $page_template = dirname( __FILE__ ) . '/page-software.php';
+    }
+    return $page_template;
+}
+
+add_filter( 'single_template', 'sp_single_template' );
+function sp_single_template( $page_template ){
+	global $sp_settings;
+	global $post;
+    if ($post->post_type=="sp_software_page") {
+        $page_template = dirname( __FILE__ ) . '/single-software.php';
     }
     return $page_template;
 }

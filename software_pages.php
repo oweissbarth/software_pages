@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) or die('No script kiddies please!');
 global $sp_settings;
 
 $sp_settings = array(
-					"use_dm" => (get_option("sp_use_dm")=="on"), 
+					"use_dm" => (get_option("sp_use_dm")=="on"),
 					"page_slug" => get_option("sp_page_slug"),
 					"default_styles" => get_option("sp_default_styles"));
 
@@ -37,3 +37,17 @@ $sp_settings = array(
 include_once("sp_posttype.php");
 include_once("sp_downloads.php");
 include_once("sp_settings.php");
+
+
+function sp_activate(){
+	sp_create_post_types();
+	flush_rewrite_rules();
+}
+
+function sp_deactivate(){
+	flush_rewrite_rules();
+}
+
+
+register_activation_hook( __FILE__, 'sp_activate' );
+register_deactivation_hook( __FILE__, 'sp_deactivate' );

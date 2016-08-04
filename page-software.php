@@ -2,7 +2,7 @@
 <?php get_header();?>
 
 		<div id="primary" class="content-area">
-			<div id="content" class="site-content" role="main">
+			<div id="content" class="site-main" role="main">
 			<?php query_posts('post_type=sp_software_page'); ?>
 			<?php if ( have_posts() ) : ?>
 				<?php /* Start the Loop */ ?>
@@ -61,7 +61,6 @@
 				}
 
 				div.software-content{
-					font-size: 0;
 					position: relative;
 				}
 
@@ -107,7 +106,6 @@
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
-					font-size: 12pt;
 					text-align: center;
 				}
 
@@ -120,7 +118,6 @@
 					margin: 0;
 					vertical-align: top;
 					padding: 0.5em;
-					font-size: 14pt;
 					-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 					-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 					box-sizing: border-box;         /* Opera/IE 8+ */
@@ -185,7 +182,7 @@
 
 
 					div.software-info{
-						width: 20%;
+						width: 25%;
 						display: inline-block;
 						margin: 0;
 						vertical-align: top;
@@ -193,7 +190,6 @@
 						-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 						-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 						box-sizing: border-box;         /* Opera/IE 8+ */
-						font-size: 12pt;
 						text-align: left;
 					}
 
@@ -201,13 +197,12 @@
 
 					div.software-description{
 						position: relative;
-						width: 60%;
+						width: 55%;
 						height: 100%;
 						display: inline-block;
 						margin: 0;
 						vertical-align: top;
 						padding: 0.5em;
-						font-size: 14pt;
 						-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 						-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 						box-sizing: border-box;         /* Opera/IE 8+ */
